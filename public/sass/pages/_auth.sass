@@ -1,0 +1,76 @@
+section#login,
+section#signup
+  background:
+    image: url('/images/Login-Background.jpg')
+    repeat: no-repeat
+    size: cover
+  height: calc(100vh - 80px)
+
+  form
+    width: 390px
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+  h3
+    color: #FFFFFF
+    font-size: 26px
+    text-align: center
+    margin-bottom: 40px
+
+  .input-group
+    position: relative
+    margin-bottom: 40px
+
+    input
+      width: 100%
+      border: 1px solid $red
+      border-radius: 100px
+      height: 48px
+      outline: none
+      padding-left: 25px
+      color: $grey-text
+      font-size: 18px
+
+    label
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+      color: $red
+      left: 25px
+      font-size: 18px
+
+    input:focus ~ label,
+    input:valid ~ label
+      display: none
+
+  .form-footer
+    height: 45px
+
+    &::after,
+    &::before
+      content: " "
+      display: block
+      clear: both
+
+    a
+      color: $yellow
+      text-decoration: none
+      font-size: 18px
+      float: left
+      line-height: 45px
+
+    button
+      background: $red
+      width: 150px
+      color: #FFFFFF
+      text-align: center
+      font-size: 22px
+      border-radius: 100px
+      outline: none
+      border: none
+      height: 45px
+      box-shadow: -2px 0 6px rgba(242, 150, 150, 0.5), 2px 2px 6px rgba(242, 150, 150, 0.5)
+      cursor: pointer
+      float: right

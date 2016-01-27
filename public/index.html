@@ -1,11 +1,39 @@
 <!DOCTYPE html>
 <html ng-app="DailyLife">
   <head>
+    <base href="/" />
     <meta charset="utf-8">
     <title>DailyLife</title>
-    <!-- <link rel="stylesheet" href="/css/main.css" charset="utf-8"> -->
+    <link rel="stylesheet" href="/css/main.css" charset="utf-8">
   </head>
   <body>
+
+    <header>
+      <a ui-sref="login" class="logo">DailyLife</a>
+
+      <nav ng-if="!user">
+        <a ui-sref="login" class="active">Login</a>
+        <a ui-sref="signup">Sign Up</a>
+      </nav>
+
+      <div class="navigation" ng-if="user">
+        <div class="header-search">
+          <input type="text">
+          <label>Search</label>
+        </div>
+
+        <div class="right-nav">
+          <ul class="account-links">
+            <li class="active">Projects (5)</li>
+            <li>Todos (3)</li>
+            <li>Settings</li>
+            <li>Logout</li>
+          </ul>
+
+          <button>Add Project</button>
+        </div>
+      </div>
+    </header>
 
     <div ui-view></div>
 
@@ -13,6 +41,8 @@
     <script src="/lib/angular-ui-router/release/angular-ui-router.js" charset="utf-8"></script>
 
     <script src="/app/app.js" charset="utf-8"></script>
+    <script src="/app/services/auth.js" charset="utf-8"></script>
     <script src="/app/controllers/AuthCtrl.js" charset="utf-8"></script>
+    <script src="/app/controllers/DashboardCtrl.js" charset="utf-8"></script>
   </body>
 </html>

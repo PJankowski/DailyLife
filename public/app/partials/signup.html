@@ -1,6 +1,6 @@
-<section id="login">
+<section id="signup">
   <form>
-    <h3>Login to your existing account</h3>
+    <h3>Sign up to use all the features</h3>
     <div class="input-group">
       <input type="text" ng-model="user.username" required>
       <label>Username</label>
@@ -10,8 +10,8 @@
       <label>Password</label>
     </div>
     <div class="form-footer">
-      <a ui-sref="signup">Or Sign Up</a>
-      <button ng-click="login(user)">Login</button>
+      <a ui-sref="login">Or Login</a>
+      <button ng-click="signup(user)">Sign Up</button>
     </div>
   </form>
 </section>

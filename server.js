@@ -5,6 +5,7 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
     config = require('./server/config'),
+    mongoose = require('mongoose');
     app = express();
 
 // uncomment after placing your favicon in /public
@@ -14,6 +15,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+mongoose.connect('mongodb://localhost:27017/DailyLife', function(err){
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('DB Connected');
+  }
+});
 
 require('./server/routes')(app);
 
