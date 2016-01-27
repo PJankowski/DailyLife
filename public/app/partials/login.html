@@ -1,6 +1,7 @@
 <section id="login">
   <form>
     <h3>Login to your existing account</h3>
+    <p class="error" ng-if="logError"> {{ logError }} </p>
     <div class="input-group">
       <input type="text" ng-model="user.username" required>
       <label>Username</label>

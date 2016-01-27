@@ -69,6 +69,10 @@ header
         color: $grey-text
         font-size: 18px
 
+      input:valid ~ label,
+      input:focus ~ label
+        display: none
+
     .right-nav
       float: right
       display: flex
@@ -87,6 +91,9 @@ header
           margin-right: 20px
           color: $grey-text
           font-size: 18px
+
+          &.active
+            color: $text
 
       button
         background: $red

@@ -1,39 +1,21 @@
-<nav class="sidebar">
-  <h4>Projects due today:</h4>
-
-  <ul>
-    <li>- Sample Project</li>
-    <li>- Sample Project</li>
-    <li>- Sample Project</li>
-  </ul>
-
-  <h4>Todos due today:</h4>
-
-  <ul>
-    <li>- Sample Todo</li>
-    <li>- Sample Todo</li>
-    <li>- Sample Todo</li>
-  </ul>
-</nav>
-
 <section id="dashboard">
   <div class="dash-header">
     <h2>Projects</h2>
 
     <ul class="filters">
-      <li class="active">All Projects</li>
-      <li><span class="upcoming"></span>Upcoming</li>
-      <li><span class="active"></span>Active</li>
-      <li><span class="complete"></span>Completed</li>
+      <li class="active" ng-click="changeFilter('')">All Projects</li>
+      <li ng-click="changeFilter('upcoming')"><span class="upcoming"></span>Upcoming</li>
+      <li ng-click="changeFilter('active')"><span class="active"></span>Active</li>
+      <li ng-click="changeFilter('complete')"><span class="complete"></span>Completed</li>
     </ul>
   </div>
 
   <div class="projects">
-    <div class="project active">
+    <div ng-repeat="project in projects | filter:status_filter" class="project {{ project.status }}">
       <div class="project-header">
         <div class="information">
-          <span>Due Today</span>
-          <h3>Sample Project</h3>
+          <span>{{project.due}}</span>
+          <h3>{{project.title}}</h3>
         </div>
         <div class="collab">
           <img src="/images/user.png" alt="User" />
@@ -41,106 +23,14 @@
       </div>
       <div class="description">
         <p>
-          Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap. Hashtag typewriter banh mi, squid keffiyeh High Life Brooklyn twee craft beer tousled chillwave.
+          {{project.description}}
         </p>
       </div>
       <div class="project-footer">
         <ul>
-          <li>Tasks (14)</li>
-          <li>Comments (3)</li>
-          <li>Attachments (0)</li>
-        </ul>
-      </div>
-    </div>
-    <div class="project upcoming">
-      <div class="project-header">
-        <div class="information">
-          <span>Due Today</span>
-          <h3>Sample Project</h3>
-        </div>
-        <div class="collab">
-          <img src="/images/user.png" alt="User" />
-        </div>
-      </div>
-      <div class="description">
-        <p>
-          Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap. Hashtag typewriter banh mi, squid keffiyeh High Life Brooklyn twee craft beer tousled chillwave.
-        </p>
-      </div>
-      <div class="project-footer">
-        <ul>
-          <li>Tasks (14)</li>
-          <li>Comments (3)</li>
-          <li>Attachments (0)</li>
-        </ul>
-      </div>
-    </div>
-    <div class="project active">
-      <div class="project-header">
-        <div class="information">
-          <span>Due Today</span>
-          <h3>Sample Project</h3>
-        </div>
-        <div class="collab">
-          <img src="/images/user.png" alt="User" />
-        </div>
-      </div>
-      <div class="description">
-        <p>
-          Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap. Hashtag typewriter banh mi, squid keffiyeh High Life Brooklyn twee craft beer tousled chillwave.
-        </p>
-      </div>
-      <div class="project-footer">
-        <ul>
-          <li>Tasks (14)</li>
-          <li>Comments (3)</li>
-          <li>Attachments (0)</li>
-        </ul>
-      </div>
-    </div>
-    <div class="project active">
-      <div class="project-header">
-        <div class="information">
-          <span>Due Today</span>
-          <h3>Sample Project</h3>
-        </div>
-        <div class="collab">
-          <img src="/images/user.png" alt="User" />
-        </div>
-      </div>
-      <div class="description">
-        <p>
-          Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap. Hashtag typewriter banh mi, squid keffiyeh High Life Brooklyn twee craft beer tousled chillwave.
-        </p>
-      </div>
-      <div class="project-footer">
-        <ul>
-          <li>Tasks (14)</li>
-          <li>Comments (3)</li>
-          <li>Attachments (0)</li>
-        </ul>
-      </div>
-    </div>
-    <div class="project complete">
-      <div class="project-header">
-        <div class="information">
-          <span>Due Today</span>
-          <h3>Sample Project</h3>
-        </div>
-        <div class="collab">
-          <img src="/images/user.png" alt="User" />
-        </div>
-      </div>
-      <div class="description">
-        <p>
-          Banjo tote bag bicycle rights, High Life sartorial cray craft beer whatever street art fap. Hashtag typewriter banh mi, squid keffiyeh High Life Brooklyn twee craft beer tousled chillwave.
-        </p>
-      </div>
-      <div class="project-footer">
-        <ul>
-          <li>Tasks (14)</li>
-          <li>Comments (3)</li>
-          <li>Attachments (0)</li>
+          <li>Tasks ({{project.tasks.length}})</li>
+          <li>Comments ({{project.tasks.length}})</li>
+          <li>Attachments ({{project.tasks.length}})</li>
         </ul>
       </div>
     </div>

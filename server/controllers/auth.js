@@ -1,4 +1,6 @@
-var User = require('../models/users');
+var User = require('../models/users'),
+    jwt = require('jwt-simple'),
+    secret = 'This is a secret';
 
 exports.login = function(req, res) {
   var user = req.body;
@@ -8,9 +10,15 @@ exports.login = function(req, res) {
       res.status(401).json(err);
     } else {
       if (!loggedUser) {
-        res.status(401).json({msg: 'No user found'});
+        res.status(401).json({msg: 'No user found, please try again.', status: 401});
       }else {
-        res.status(200).json(loggedUser);
+        if (user.password === loggedUser.password) {
+          var payload = {username: loggedUser.username, _id: loggedUser._id};
+          var token = jwt.encode(payload, secret);
+          res.status(200).json(token);
+        } else {
+          res.status(401).json({msg: 'No user found, please try again.', status: 401});
+        }
       }
     }
   });

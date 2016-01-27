@@ -2,13 +2,14 @@
   'use strict';
 
   angular.module('DailyLife')
-    .factory('Auth', ['$http', '$q', function($http, $q){
+    .factory('Auth', ['$http', '$q', 'Token', function($http, $q, Token){
       return {
         login: function(user) {
           var deferred = $q.defer();
           $http.post('/api/auth/login', user)
             .success(function(token){
-              deferred.resolve(token);
+              var payload = Token.decodeToken(token);
+              deferred.resolve(payload);
             })
             .error(function(err){
               deferred.reject(err);

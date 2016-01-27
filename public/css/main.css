@@ -15,6 +15,21 @@ label,
 input {
   font-family: "Open Sans", Helvetica, sans-serif; }
 
+.container {
+  max-width: 960px;
+  margin: 0 auto; }
+
+.flex-center {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
 header {
   background: #FFFFFF;
   height: 80px;
@@ -80,6 +95,9 @@ header {
                 transform: translateY(-50%);
         color: #CFCFCF;
         font-size: 18px; }
+      header .navigation .header-search input:valid ~ label,
+      header .navigation .header-search input:focus ~ label {
+        display: none; }
     header .navigation .right-nav {
       float: right;
       display: -webkit-flex;
@@ -106,6 +124,8 @@ header {
           margin-right: 20px;
           color: #CFCFCF;
           font-size: 18px; }
+          header .navigation .right-nav ul.account-links li.active {
+            color: #36413D; }
       header .navigation .right-nav button {
         background: #F29696;
         box-shadow: -2px 0 4px rgba(242, 150, 150, 0.5), 2px 2px 4px rgba(242, 150, 150, 0.5);
@@ -118,20 +138,28 @@ header {
         font-size: 18px;
         cursor: pointer; }
 
-.container {
-  max-width: 960px;
-  margin: 0 auto; }
-
-.flex-center {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center; }
+nav.sidebar {
+  width: 250px;
+  background: #FFFFFF;
+  box-shadow: 2px 0 6px rgba(98, 98, 98, 0.5);
+  position: fixed;
+  top: 80px;
+  bottom: 0;
+  left: 0;
+  padding: 1.2rem; }
+  nav.sidebar h4 {
+    color: #F29696;
+    font-size: 18px;
+    line-height: 22px; }
+  nav.sidebar ul {
+    color: #CFCFCF;
+    list-style-type: none;
+    margin-top: 10px;
+    margin-left: 20px; }
+    nav.sidebar ul li {
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 6px; }
 
 section#login,
 section#signup {
@@ -212,29 +240,6 @@ section#signup {
       cursor: pointer;
       float: right; }
 
-nav.sidebar {
-  width: 250px;
-  background: #FFFFFF;
-  box-shadow: 2px 0 6px rgba(98, 98, 98, 0.5);
-  position: fixed;
-  top: 80px;
-  bottom: 0;
-  left: 0;
-  padding: 1.2rem; }
-  nav.sidebar h4 {
-    color: #F29696;
-    font-size: 18px;
-    line-height: 22px; }
-  nav.sidebar ul {
-    color: #CFCFCF;
-    list-style-type: none;
-    margin-top: 10px;
-    margin-left: 20px; }
-    nav.sidebar ul li {
-      font-size: 16px;
-      line-height: 20px;
-      margin-bottom: 6px; }
-
 section#dashboard {
   width: calc(100% - 250px);
   margin-left: 250px;
@@ -267,7 +272,8 @@ section#dashboard {
       -webkit-align-items: center;
           -ms-flex-align: center;
               align-items: center;
-      line-height: 45px; }
+      line-height: 45px;
+      cursor: pointer; }
       section#dashboard .dash-header li.active {
         color: #36413D; }
       section#dashboard .dash-header li span {
@@ -343,3 +349,10 @@ section#dashboard {
         section#dashboard .projects .project .project-footer ul li {
           font-size: 13px;
           color: #4C657E; }
+
+form p.error {
+  background: #F29696;
+  color: #FFFFFF;
+  padding: 10px 25px;
+  border-radius: 100px;
+  margin-bottom: 10px; }

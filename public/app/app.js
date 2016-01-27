@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  angular.module('DailyLife', ['ui.router'])
+  angular.module('DailyLife', ['ui.router', 'angular-jwt'])
     .config(['$urlRouterProvider', '$stateProvider', '$locationProvider', function($urlRouterProvider, $stateProvider, $locationProvider){
       $urlRouterProvider.otherwise('/login');
       $locationProvider.html5Mode(true);

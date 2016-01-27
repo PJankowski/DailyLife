@@ -16,15 +16,15 @@
         <a ui-sref="signup">Sign Up</a>
       </nav>
 
-      <div class="navigation" ng-if="user">
+      <div class="navigation" ng-if="user" ng-controller="DashboardCtrl">
         <div class="header-search">
-          <input type="text">
+          <input type="text" required>
           <label>Search</label>
         </div>
 
         <div class="right-nav">
           <ul class="account-links">
-            <li class="active">Projects (5)</li>
+            <li class="active">Projects ({{projects.length}})</li>
             <li>Todos (3)</li>
             <li>Settings</li>
             <li>Logout</li>
@@ -35,13 +35,34 @@
       </div>
     </header>
 
+    <nav class="sidebar" ng-if="user" ng-controller="DashboardCtrl">
+      <h4>Projects due today:</h4>
+
+      <ul>
+        <li>- Sample Project</li>
+        <li>- Sample Project</li>
+        <li>- Sample Project</li>
+      </ul>
+
+      <h4>Todos due today:</h4>
+
+      <ul>
+        <li>- Sample Todo</li>
+        <li>- Sample Todo</li>
+        <li>- Sample Todo</li>
+      </ul>
+    </nav>
+
     <div ui-view></div>
 
     <script src="/lib/angular/angular.js" charset="utf-8"></script>
     <script src="/lib/angular-ui-router/release/angular-ui-router.js" charset="utf-8"></script>
+    <script src="/lib/angular-jwt/dist/angular-jwt.js" charset="utf-8"></script>
 
     <script src="/app/app.js" charset="utf-8"></script>
-    <script src="/app/services/auth.js" charset="utf-8"></script>
+    <script src="/app/services/Auth.js" charset="utf-8"></script>
+    <script src="/app/services/Token.js" charset="utf-8"></script>
+    <script src="/app/services/Projects.js" charset="utf-8"></script>
     <script src="/app/controllers/AuthCtrl.js" charset="utf-8"></script>
     <script src="/app/controllers/DashboardCtrl.js" charset="utf-8"></script>
   </body>
