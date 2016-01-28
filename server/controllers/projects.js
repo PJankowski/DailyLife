@@ -21,3 +21,15 @@ exports.create = function(req, res) {
     }
   });
 };
+
+exports.show = function(req, res) {
+  var id = req.params.id;
+
+  Project.findById(id, function(err, project){
+    if (err) {
+      res.status(500).json(err);
+    } else {
+      res.status(200).json(project);
+    }
+  });
+};

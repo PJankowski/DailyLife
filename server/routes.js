@@ -8,6 +8,7 @@ module.exports = function(app) {
 
   app.get('/api/projects', projects.getAll);
   app.post('/api/project', projects.create);
+  app.get('/api/project/:id', projects.show);
 
   app.get('/*', function(req, res){
     res.sendFile(path.normalize(__dirname + '/../public/index.html'));

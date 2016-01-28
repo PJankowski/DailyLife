@@ -20,7 +20,7 @@
         .state('dashboard', {
           url: '/dashboard',
           templateUrl: '/app/partials/dashboard.html',
-          controller: 'DashboardCtrl'
+          controller: 'DashboardCtrl',
         });
     }]);
 })();

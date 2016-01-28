@@ -11,7 +11,7 @@
   </div>
 
   <div class="projects">
-    <div ng-repeat="project in projects | filter:status_filter" class="project {{ project.status }}">
+    <div ng-repeat="project in projects | filter:status_filter" class="project {{ project.status }}" ng-click="getProject(project._id)">
       <div class="project-header">
         <div class="information">
           <span>{{project.due}}</span>
@@ -36,4 +36,107 @@
     </div>
   </div>
 
+  <nav class="add-project--form">
+    <h3>Add Project</h3>
+
+    <div class="input-group">
+      <input type="text" required>
+      <label>Name</label>
+    </div>
+
+    <div class="input-group">
+      <input type="text" required>
+      <label>Description</label>
+    </div>
+
+    <div class="input-group">
+      <input type="text" required>
+      <label>Due Date</label>
+    </div>
+  </nav>
+</section>
+
+
+<section class="project">
+  <div class="underlay"></div>
+
+  <div class="content">
+    <div class="project-header">
+      <div class="project-info">
+        <h2>{{currentProject.title}}</h2>
+        <span class="date">{{currentProject.due}}</span>
+      </div>
+
+      <button class="status-change">Complete</button>
+    </div>
+
+    <div class="description">
+      <p>{{currentProject.description}}</p>
+    </div>
+
+    <hr>
+
+    <div class="lists">
+      <div class="tasks">
+        <div class="tasks-belt">
+          <h3>Tasks</h3>
+
+          <button class="add-task">Add Task</button>
+        </div>
+
+        <span ng-if="currentProject.tasks.length === 0">There are no Tasks</span>
+
+        <ul ng-if="currentProject.tasks != 0">
+          <li ng-repeat="task in currentProject.tasks">
+            <div class="task-header">
+              <h4>Do this random task</h4>
+              <span>Due today</span>
+            </div>
+
+            <div class="task-footer">
+              <i class="mdi mdi-close"></i>
+              <i class="mdi mdi-check"></i>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="files">
+        <div class="files-belt">
+          <h3>Files</h3>
+
+          <button class="add-file">Add File</button>
+        </div>
+
+        <span ng-if="currentProject.attachments.length === 0">There are no files</span>
+
+        <ul ng-if="currentProject.attachments != 0">
+          <li ng-repeat="file in currentProject.attachments">
+            <h4>filename.jpg</h4>
+            <i class="mdi mdi-close"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="comments">
+      <div class="comments-belt">
+        <h3>Comments</h3>
+
+        <button class="add-comment">Add Comment</button>
+      </div>
+
+      <span ng-if="currentProject.comments.length === 0">There are no Comments</span>
+
+      <ul ng-if="currentProject.comments.length != 0">
+        <li ng-repeat="comment in currentProject.comments">
+          <img src="/images/user.png" alt="User">
+
+          <p>Retro occupy organic, stumptown shabby chic pour-over roof party DIY normcore. Actually artisan organic occupy, Wes Anderson ugh whatever pour-over gastropub selvage.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
 </section>

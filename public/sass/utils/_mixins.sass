@@ -1,0 +1,10 @@
+@mixin clearfix()
+  &::before,
+  &::after
+    clear: both
+    display: table
+    content: " "
+
+@mixin button-color($color: $red)
+  background: $color
+  box-shadow: 2px 2px 4px rgba($color, 0.5), -2px 0 4px rgba($color, 0.5)
