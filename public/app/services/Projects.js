@@ -37,6 +37,17 @@
               deferred.reject(err);
             });
           return deferred.promise;
+        },
+        completeProject: function(project) {
+          var deferred = $q.defer();
+          $http.put('/api/project', project)
+            .success(function(good){
+              deferred.resolve(good);
+            })
+            .error(function(err){
+              deferred.reject(err);
+            });
+          return deferred.promise;
         }
       };
     }]);

@@ -29,3 +29,5 @@ public/lib
 
 # Debug log from npm
 npm-debug.log
+
+public/dist

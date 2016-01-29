@@ -12,8 +12,17 @@
           console.log(err);
         });
 
-      $scope.addProject = function() {
+      $scope.openProjectForm = function() {
         angular.element('nav.add-project--form').addClass('open');
+      };
+
+      $scope.addProject = function(newProject) {
+        Project.addProject(project)
+          .then(function(project){
+            $scope.projects.push(project);
+          }, function(err){
+            console.log(err);
+          });
       };
 
       $scope.changeFilter = function(text) {
@@ -25,6 +34,17 @@
           .then(function(project){
             $scope.currentProject = project;
             angular.element('section.project').addClass('open');
+          }, function(err){
+            console.log(err);
+          });
+      };
+
+      $scope.completeProject = function(project) {
+        project.status = 'complete';
+
+        project.completeProject(project)
+          .then(function(){
+            console.log('Yay!');
           }, function(err){
             console.log(err);
           });

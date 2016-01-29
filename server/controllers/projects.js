@@ -33,3 +33,15 @@ exports.show = function(req, res) {
     }
   });
 };
+
+exports.update = function(req, res) {
+  var project = req.body;
+
+  Project.findByIdAndUpdate(project.id, project, {upsert: true}, function(err, upProject){
+    if (err) {
+      res.status(500).json(err);
+    } else {
+      res.status(200).json(upProject);
+    }
+  });
+};

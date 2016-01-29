@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- '0.12'
+
+before_script:
+  - npm install
+
+script: gulp build
+
+deploy:
+  skip_cleanup: true
+  provider: heroku
+  api_key:
+    secure: pDkuoAZ/9pcY63h9QDgwvy9OZpB4xLWmgk9qqXMBy0QugIPKjRUVthmt+zE08Y+CiJTUlrlZGmvFsjAyoiJ4O2HyjmzJOQRtP1SuDhGQffBgJRP7SmFhLmHUV0DGW3KoeFXthKKLOg/c6hvbTDPZ15WMcPNwA0pBt+n+qb6ZVTMHBIEMQP76vjl0ZM+z+4w5gPhT1HaQX7nCq2yh+lNsI9SErE31tGD6WhsVMSvxRjW1kpkdNiUpwjj3nyWZmLkPB6Mp/BLfpCtI8G6Fl6vEPRDVYuRu5xMpas7fF2QC9X9q1CH5ub0uUWy09uC3n6Jk2OGJEXTSw5pUaqt7288YUvpvEceFeKadSYwz/SuR4yjuczMuoysi3pAbPyWBNY3X+nmYjZIPxSwgJ/dKUbCEanUi01xTQgNI6wCC5y7x23iWf/lnah5c6Mi5Lf2U/VIZzc3kMCTnJZj9JxjjTxd51Z7vi1XxSys2OU8TuCIdIp2u6L6Xe2bI1tb9TR7yq1dVkQwQzsw8V+Unzj66QMQAYc4qF6C2YYHZLkyqMelWm5ertXoGvTc92TAX0d+W/gHX5HkcdHZxpCygFX/MpjLkXIE32LVdjJnnIs/52aDxI8ngGrFOOeCT7NBdaoQTolLFq3CRIBOcpUoTezTxh3d8gGlwbXQy9aFC+2wsOnuU/NY=
+  app: dailylife
+  on:
+    repo: PJankowski/DailyLife

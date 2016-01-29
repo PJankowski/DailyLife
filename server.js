@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-mongoose.connect('mongodb://localhost:27017/DailyLife', function(err){
+mongoose.connect(config.mongoUrl, function(err){
   if (err) {
     console.log(err);
   }
