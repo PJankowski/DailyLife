@@ -48,4 +48,4 @@ gulp.task('html:build', ['sass:build'], function(){
     .pipe(gulp.dest('public'));
 });
 
-gulp.task('build', ['html:build']);
+gulp.task('build', ['sass:build']);
