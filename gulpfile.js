@@ -37,6 +37,7 @@ gulp.task('sass:build', function(){
   gulp.src('public/sass/main.sass')
     .pipe(sass())
     .pipe(autoPrefixer({browsers: ['last 2 versions']}))
+    .pipe(cssnano())
     .pipe(gulp.dest('public/css'));
 });
 
@@ -44,7 +45,6 @@ gulp.task('html:build', ['sass:build'], function(){
   gulp.src('public/index.html')
     .pipe(useref())
     .pipe(gulpif('*.js', uglify()))
-    .pipe(gulpif('*.css', cssnano()))
     .pipe(gulp.dest('public'));
 });
 
